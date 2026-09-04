@@ -63,14 +63,15 @@ const employeeData = {
 }
 
 const employeeList = (listNode, employeeData) => {
-    console.log(employeeData)
+
     Object.entries(employeeData).forEach(([department, employees]) => {
+        const departmentLiNode = document.createElement("ul");
+        departmentLiNode.innerHTML = `<a>department: ${department}</a>`;
+        listNode.appendChild(departmentLiNode);
         for (var employee of employees) {
-            const newLiNode = document.createElement("li");
-
-            newLiNode.innerHTML = `<a href="#">${department, employee}</a>`;
-
-            listNode.appendChild(newLiNode);
+            const employeeLiNode = document.createElement("ul");
+            employeeLiNode.innerHTML = `<a>${employee}</a>`;
+            listNode.appendChild(employeeLiNode);
         }
     });
 }
