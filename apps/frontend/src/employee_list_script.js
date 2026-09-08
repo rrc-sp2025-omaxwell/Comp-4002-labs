@@ -1,8 +1,7 @@
 const employeeList = (listNode, employeeData) => {
-    console.log(employeeData)
     Object.entries(employeeData).forEach(([department, employees]) => {
         const departmentLiNode = document.createElement("ul");
-        departmentLiNode.innerHTML = `<a>department: ${department}</a>`;
+        departmentLiNode.innerHTML = `<a class="department-name">Department: ${department}</a>`;
         listNode.appendChild(departmentLiNode);
         for (var employee of employees) {
             const employeeLiNode = document.createElement("ul");
@@ -12,9 +11,19 @@ const employeeList = (listNode, employeeData) => {
     });
 }
 
-async function collectEmployeeData() {
+function generateFooter() {
+    const currentYear = new Date().getFullYear();
+    const footerNode = document.querySelector(`footer`);
     
-    const employeeListNode = document.querySelector(".employee_list");
+    const footerSentence = document.createElement('p');
+    footerSentence.innerHTML = `Copyright Pixell River Financial ${currentYear}`
+
+    footerNode.appendChild(footerSentence);
+}
+
+async function collectEmployeeData() {
+
+    const employeeListNode = document.querySelector(".employee-list");
 
     try {
         const response = await fetch("./assets/employee_list.json");
@@ -31,5 +40,6 @@ async function collectEmployeeData() {
 
 document.addEventListener("DOMContentLoaded", () => {
     collectEmployeeData();
+    generateFooter();
 })
 

@@ -1,5 +1,4 @@
 header {
-
     top: 0;
     left: 0;
     width: 100%;
@@ -24,4 +23,12 @@ main {
     margin: auto;
     max-width: 60%;
     background-color: lightgray;
+}
+
+.department-name {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
 }
