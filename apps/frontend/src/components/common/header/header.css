@@ -1,0 +1,20 @@
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 10px 25px;
+    align-items: center;
+    background-color: rgb(47, 168, 238);
+}
+
+.header-PRF-logo {
+    width: 20%;
+    height: auto;
+    background-color: rgb(232, 236, 238);
+    border-radius: 25%;
+}
+
+.header-text {
+    margin-left: 20px;
+}

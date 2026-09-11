@@ -8,7 +8,7 @@ async function collectEmployeeData() {
     const employeeListNode = document.querySelector(".employee-list");
 
     try {
-        const response = await fetch("./assets/employee_list.json");
+        const response = await fetch("../../assets/employee_list.json");
         if (!response.ok) {
             throw new Error(`Error collecting employee data
                  Error Status: ${response.status}`);
@@ -32,7 +32,7 @@ const employeeList = ({employeeData}: {employeeData: Department}) => {
 function ListDepartment(departmentName: string) {
     return (
         <ul>
-            <a href='department'>{departmentName}</a>
+            <a class='department-name'>{departmentName}</a>
         </ul>
     )
 }
@@ -40,7 +40,20 @@ function ListDepartment(departmentName: string) {
 function ListEmployee(employeeName: string) {
     return (
         <ul>
-            <a href='employee'>{employeeName}</a>
+            <a class='employee'>{employeeName}</a>
         </ul>
     )
 }
+
+
+function EmployeeListSection() {
+    return (
+        <>
+            <main>
+                <collectEmployeeData />
+            </main>
+        </>
+    )
+}
+
+export default EmployeeListSection
