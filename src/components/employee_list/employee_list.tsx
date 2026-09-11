@@ -1,6 +1,8 @@
 
+
 type Department = {
-    [departmentName: string]: string[]
+    departmentName: string;
+    employees: string[]
 };
 
 async function collectEmployeeData() {
@@ -18,6 +20,7 @@ async function collectEmployeeData() {
     console.error("Error collecting employee data:", error)
     }
 }
+
 
 function EmployeeList() {
     const employeeData = collectEmployeeData()
