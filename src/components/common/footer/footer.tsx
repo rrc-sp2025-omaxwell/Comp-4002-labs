@@ -1,11 +1,11 @@
 import "./footer.css";
 
 function Footer() {
-    const currentYEar = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
 
     return(
         <footer>   
-            Copyright Pixell River Financial {currentYEar}
+            Copyright Pixell River Financial {currentYear}
         </footer> 
     );
 }

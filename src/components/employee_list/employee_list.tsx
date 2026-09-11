@@ -5,7 +5,6 @@ type Department = {
 
 async function collectEmployeeData() {
 
-    const employeeListNode = document.querySelector(".employee-list");
 
     try {
         const response = await fetch("../../assets/employee_list.json");
@@ -14,13 +13,14 @@ async function collectEmployeeData() {
                  Error Status: ${response.status}`);
         }
         const employeeData = await response.json();
-        employeeList(employeeData)
+        return(employeeData)
     } catch (error) {
     console.error("Error collecting employee data:", error)
     }
 }
 
-const employeeList = ({employeeData}: {employeeData: Department}) => {
+function EmployeeList() {
+    const employeeData = collectEmployeeData()
     Object.entries(employeeData).forEach(([department, employees]) => {
         ListDepartment(department)
         for (var employee of employees) {
@@ -32,7 +32,7 @@ const employeeList = ({employeeData}: {employeeData: Department}) => {
 function ListDepartment(departmentName: string) {
     return (
         <ul>
-            <a class='department-name'>{departmentName}</a>
+            <a className='department-name'>{departmentName}</a>
         </ul>
     )
 }
@@ -40,7 +40,7 @@ function ListDepartment(departmentName: string) {
 function ListEmployee(employeeName: string) {
     return (
         <ul>
-            <a class='employee'>{employeeName}</a>
+            <a className='employee'>{employeeName}</a>
         </ul>
     )
 }
@@ -50,7 +50,7 @@ function EmployeeListSection() {
     return (
         <>
             <main>
-                <collectEmployeeData />
+                <EmployeeList />
             </main>
         </>
     )

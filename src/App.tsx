@@ -12,7 +12,7 @@ function App() {
             <Footer />
         </>
     );
-}
+};
 
 // export component to main.tsx
 export default App
