@@ -2,8 +2,13 @@
     margin: auto;
     max-width: 60%;
     background-color: lightgray;
+    text-align: center;
 }
 
 .department {
     font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
 }
