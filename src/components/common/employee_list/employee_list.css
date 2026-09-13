@@ -3,3 +3,7 @@
     max-width: 60%;
     background-color: lightgray;
 }
+
+.department {
+    font-weight: bold;
+}

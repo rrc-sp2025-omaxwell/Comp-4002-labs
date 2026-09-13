@@ -5,8 +5,8 @@ function EmployeeList() {
     return (
         <div className="employeeList">
             {Object.entries(employeeList).map(([department, employees]) => (
-                <ul>
-                    <li key={department}>{department}</li>
+                <ul key={department}>
+                    <li key={department} className="department">{department}</li>
                         {employees.map((employee) => (
                             <li key={employee}>{employee}</li>
                         ))}
