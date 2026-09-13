@@ -1,14 +1,15 @@
 // Imports
-import EmployeeListSection from "./components/employee_list/employee_list"
+import EmployeeList from "./components/common/employee_list/employee_list"
 import Header from "./components/common/header/header";
 import Footer from "./components/common/footer/footer";
+
 
 
 function App() {
     return (
         <>
             <Header />
-            <EmployeeListSection />
+            <EmployeeList />
             <Footer />
         </>
     );
