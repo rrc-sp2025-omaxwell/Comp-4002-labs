@@ -1,4 +1,5 @@
 import type { ManagementRole } from "../../../types/management_role_type";
+import "./organization_page.css"
 
 function OrganizationTable({ managementList }: ManagementRole) {
     // Indivudual name parsing 
