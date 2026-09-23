@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { DepartmentData } from "../../../types/department_data_type";
+import "./new_employee_form.css"
 
 // Extend setEmployees as a prop down from app.tsx
 type NewEmployeeProp = {
@@ -27,7 +28,7 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
 
         // validate first name length
         if (employeeFirstName.length < 3) {
-            setErrorMessage("Error: The employee name must be three character or more.")
+            setErrorMessage("Error: The employee name must be at least three characters or more.")
             return
         }
 
@@ -54,6 +55,7 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
     }
     return (
         <>
+        <div className="form-body">
         <form className="new-employee-form" onSubmit={handleFormSubmit}>
             <input type="text"
                 name="employee-field-term"
@@ -85,6 +87,7 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
         {errorMessage && (
             <p className="error-message">{errorMessage}</p>
         )}
+        </div>
         </>
     );
 }

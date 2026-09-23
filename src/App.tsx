@@ -15,11 +15,11 @@ function App() {
     return (
         <>
             <Header />
-            // EmployeeList takes the latest state of employee list.
+            {/* EmployeeList takes the latest state of employee list. */}
             <EmployeeList 
                 employees={employees}
             />
-            // NewEmployeeform takes latest state as well as the function to update that state.
+            {/*NewEmployeeform takes latest state as well as the function to update that state. */}
             <NewEmployeeForm
                 setEmployees={setEmployees}
             />
