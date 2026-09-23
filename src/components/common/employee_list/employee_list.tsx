@@ -1,13 +1,20 @@
-import employeeList from "../../../../src/assets/employee_list.json"
 import "./employee_list.css"
+import type { DepartmentData } from "../../../types/department_data_type";
 
-function EmployeeList() {
+// EmployeeList takes employees prop from app
+type EmployeeListProp = {
+    employees: DepartmentData
+}
+
+
+
+function EmployeeList({ employees }: EmployeeListProp) {
     return (
         <div className="employeeList">
-            {Object.entries(employeeList).map(([department, employees]) => (
+            {Object.entries(employees).map(([department, employeeNames]) => (
                 <ul key={department}>
                     <li key={department} className="department">{department}</li>
-                        {employees.map((employee) => (
+                        {employeeNames.map((employee) => (
                             <li key={employee}>{employee}</li>
                         ))}
                 </ul>
