@@ -10,14 +10,31 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
         
     const [employeeName, setEmployeeName] = useState("");
     const [departmentName, setDepartmentName] = useState("");
+    // State for new error messages
+    const [errorMessage, setErrorMessage] = useState("");
 
 
     function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
 
         event.preventDefault();
 
-        if (employeeName.trim() === "") {
-            return;
+        // Form input validation
+
+        // Get first name
+        const trimmedEmployeeName = employeeName.trim()
+        const nameSpace = trimmedEmployeeName.indexOf(" ")
+        const employeeFirstName = trimmedEmployeeName.substring(0, nameSpace)
+
+        // validate first name length
+        if (employeeFirstName.length < 3) {
+            setErrorMessage("Error: The employee name must be three character or more.")
+            return
+        }
+
+        // validate department selection (cannot be none)
+        if (departmentName === "") {
+            setErrorMessage("Error: Please select employees department.")
+            return
         }
 
         // spread operator (...) copies current employees object state as original cannot be changed
@@ -29,11 +46,14 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
             ]
         }))
 
+        // clear states
         setEmployeeName("");
         setDepartmentName("")
+        setErrorMessage("")
 
     }
-    return(
+    return (
+        <>
         <form className="new-employee-form" onSubmit={handleFormSubmit}>
             <input type="text"
                 name="employee-field-term"
@@ -47,7 +67,7 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
                 value={departmentName}
                 onChange={e => setDepartmentName(e.target.value)}
             >
-                <option value=""></option>
+                <option value="">Please select a Department</option>
                 <option value="Administration">Administration</option>
                 <option value="Audit">Audit</option>
                 <option value="Banking Operations">Banking Operations</option>
@@ -61,6 +81,11 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
             </select>
             <input type="submit" value="Add Employee" />
         </form>
+
+        {errorMessage && (
+            <p className="error-message">{errorMessage}</p>
+        )}
+        </>
     );
 }
 
