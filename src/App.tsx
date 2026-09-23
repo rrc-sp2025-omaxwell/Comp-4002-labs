@@ -8,6 +8,7 @@ import employeeList from "./assets/employee_list.json"
 import type { DepartmentData } from "./types/department_data_type";
 import OrganizationTable from "./components/common/organization_page/organization_page"
 import management_list from "./assets/management_list.json"
+import { Nav } from "./components/common/nav/nav"
 
 import { Routes, Route } from "react-router-dom";
 
@@ -15,11 +16,21 @@ function App() {
 
     // Initialize state for employees
     const [employees, setEmployees] = useState<DepartmentData>(employeeList);
+
     return (
         <Routes>
+            <Route path="/" element={
+                <>
+                <Header />
+                <Nav />
+                <Footer />    
+                </>
+            } />
+
             <Route path="/employees" element={
                 <>
                 <Header />
+                <Nav />
                 {/* EmployeeList takes the latest state of employee list. */}
                 <EmployeeList 
                     employees={employees} />
@@ -35,6 +46,7 @@ function App() {
             <Route path="/organization" element={
                 <>
                 <Header />
+                <Nav />
                 <OrganizationTable 
                     managementList={management_list} />   
                 <Footer />            
