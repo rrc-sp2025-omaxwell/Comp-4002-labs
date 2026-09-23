@@ -9,19 +9,40 @@ import type { DepartmentData } from "./types/department_data_type";
 import OrganizationTable from "./components/common/organization_page/organization_page"
 import management_list from "./assets/management_list.json"
 
+import { Routes, Route } from "react-router-dom";
+
 function App() {
 
     // Initialize state for employees
     const [employees, setEmployees] = useState<DepartmentData>(employeeList);
     return (
-        <>
-            <Header />
-            {/* EmployeeList takes the latest state of employee list. */}
+        <Routes>
+            <Route path="/employees" element={
+                <>
+                <Header />
+                {/* EmployeeList takes the latest state of employee list. */}
+                <EmployeeList 
+                    employees={employees} />
+                
+                {/*NewEmployeeform takes latest state as well as the function to update that state. */}
+                <NewEmployeeForm
+                    setEmployees={setEmployees} />
+                <Footer />    
+                </>
+            } />
+            
 
-            <OrganizationTable 
-                managementList={management_list} />
-            <Footer />
-        </>
+            <Route path="/organization" element={
+                <>
+                <Header />
+                <OrganizationTable 
+                    managementList={management_list} />   
+                <Footer />            
+                </> 
+            } />
+
+            
+        </Routes>
     );
 };
 
