@@ -1,0 +1,12 @@
+nav .page-links {
+    margin: 0 auto;
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+nav .page-links .link {
+    background-color: brown;
+}
