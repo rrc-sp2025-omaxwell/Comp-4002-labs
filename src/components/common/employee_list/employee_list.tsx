@@ -6,8 +6,6 @@ type EmployeeListProp = {
     employees: DepartmentData
 }
 
-
-
 function EmployeeList({ employees }: EmployeeListProp) {
     return (
         <div className="employeeList">

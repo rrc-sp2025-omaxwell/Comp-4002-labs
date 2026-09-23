@@ -1,0 +1,157 @@
+{
+    "executive_leadership": [
+        {
+            "name": "Jo-Anne Sinclair",
+            "title": "CEO/Chair of Board"
+        },
+        {
+            "name": "Jackson Smith",
+            "title": "COO/VP Operations"
+        },
+        {
+            "name": "Susan Thomas",
+            "title": "CFO/VP Administration"
+        },
+        {
+            "name": "Richa Kaur",
+            "title": "VP Client Services"
+        },
+        {
+            "name": "Josee Benjamin",
+            "title": "CIO"
+        },
+        {
+            "name": "Vincent Grey",
+            "title": "VP Sales & Marketing"
+        }
+        ],
+    "directors": [
+        {
+            "name": "Rupa Kharki",
+            "title": "Director Financial and Audit Svcs",
+            "pronouns": "she/her/hers"
+        },
+        {
+            "name": "Xun Kuang",
+            "title": "Director Human Resources"
+        },
+        {
+            "name": "Stien Pedersen",
+            "title": "Director Legal Services/General Counsel"
+        },
+        {
+            "name": "Sandra Bear",
+            "title": "Director Information Technology"
+        },
+        {
+            "name": "Gus Blue",
+            "title": "Director Information Security and CISSO"
+        },
+        {
+            "name": "Sam Kong",
+            "title": "Director Accounting"
+        },
+        {
+            "name": "Valentine Smith",
+            "title": "Director Physical Security"
+        },
+        {
+            "name": "Mariya Kaperski",
+            "title": "Director Facilities"
+        }
+        ],
+    "management_and_technical_leads": [
+        {
+            "name": "Abd al-Hamid Alami",
+            "title": "Manager, Business Continuity and Disaster Recovery"
+        },
+        {
+            "name": "Victoria Gray",
+            "title": "Manager, Internal Audit"
+        },
+        {
+            "name": "Cheryl Guru",
+            "title": "Chief Architect"
+        },
+        {
+            "name": "Jean Ngoy",
+            "title": "Manager, Security Architecture"
+        },
+        {
+            "name": "Kris Gold",
+            "title": "Solution Architect, Online Banking"
+        },
+        {
+            "name": "Isaac Smith",
+            "title": "Manager, Application Solutions"
+        },
+        {
+            "name": "Payton Frost",
+            "title": "Lead Developer, Online Banking"
+        },
+        {
+            "name": "Samantha Nettle",
+            "title": "Manager, Operational Risk"
+        },
+        {
+            "name": "Yolanda Ferreira",
+            "title": "Manager, Vendor Relations"
+        },
+        {
+            "name": "Samir Hassan",
+            "title": "Manager, Purchasing"
+        },
+        {
+            "name": "Yuna Aikawa",
+            "title": "Manager, Communications"
+        },
+        {
+            "name": "Jonathan Carberry",
+            "title": "Manager Customer Experience and Community Eng."
+        },
+        {
+            "name": "Roland Wei",
+            "title": "Manager of Sales"
+        },
+        {
+            "name": "Pran Singh",
+            "title": "Manager, Marketing"
+        },
+        {
+            "name": "Linda Analyst",
+            "title": "Business Analyst, Online Banking"
+        },
+        {
+            "name": "Esra Sedge",
+            "title": "Manager, Contract Management"
+        },
+        {
+            "name": "Pranee Tan",
+            "title": "Manager, Compliance Management"
+        },
+        {
+            "name": "Karmen Spruce",
+            "title": "Manager IT End User Service Desk"
+        },
+        {
+            "name": "Haydar Katirci",
+            "title": "Manager IT End User Computing"
+        },
+        {
+            "name": "Jill Harkness",
+            "title": "Manager IT Telecom and Infrastructure"
+        },
+        {
+            "name": "Tim Morrison",
+            "title": "Manager, Data Center and Hosting Services"
+        },
+        {
+            "name": "Aleksandr Milosevic",
+            "title": "Manager of IT Risk Management"
+        },
+        {
+            "name": "Jim Wingnut",
+            "title": "Manager IT, project management office"
+        }
+    ]
+  }
