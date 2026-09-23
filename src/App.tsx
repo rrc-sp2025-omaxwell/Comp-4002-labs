@@ -2,14 +2,27 @@
 import EmployeeList from "./components/common/employee_list/employee_list"
 import Header from "./components/common/header/header";
 import Footer from "./components/common/footer/footer";
-
+import { NewEmployeeForm } from "./components/common/new_employee_form/new_employee_form";
+import { useState } from "react";
+import employeeList from "./assets/employee_list.json"
+import type { DepartmentData } from "./types/department_data_type";
 
 
 function App() {
+
+    // Initialize state for employees
+    const [employees, setEmployees] = useState<DepartmentData>(employeeList);
     return (
         <>
             <Header />
-            <EmployeeList />
+            {/* EmployeeList takes the latest state of employee list. */}
+            <EmployeeList 
+                employees={employees}
+            />
+            {/*NewEmployeeform takes latest state as well as the function to update that state. */}
+            <NewEmployeeForm
+                setEmployees={setEmployees}
+            />
             <Footer />
         </>
     );
