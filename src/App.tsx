@@ -37,6 +37,7 @@ function App() {
                 
                 {/*NewEmployeeform takes latest state as well as the function to update that state. */}
                 <NewEmployeeForm
+                    employees={employees}
                     setEmployees={setEmployees} />
                 <Footer />    
                 </>
