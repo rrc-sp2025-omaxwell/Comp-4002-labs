@@ -1,57 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { DepartmentData } from "../../../types/department_data_type";
 import "./new_employee_form.css"
+import { useFormInput } from "../../../hooks/useFormInput"
+import type { Dispatch, SetStateAction } from "react";
 
-// Extend setEmployees as a prop down from app.tsx
-type NewEmployeeProp = {
-    setEmployees: React.Dispatch<React.SetStateAction<DepartmentData>>;
-}
+type NewEmployeeFormProps = {
+  employees: DepartmentData;
+  setEmployees: Dispatch<SetStateAction<DepartmentData>>;
+};
 
-export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
+export function NewEmployeeForm({
+    employees, setEmployees
+}: NewEmployeeFormProps) {
         
     const [employeeName, setEmployeeName] = useState("");
     const [departmentName, setDepartmentName] = useState("");
-    // State for new error messages
-    const [errorMessage, setErrorMessage] = useState("");
+    const {departmentData, error, createNewEmployee} = useFormInput( { employees, setEmployees})
 
-
-    function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
 
         event.preventDefault();
 
-        // Form input validation
+        const success = await createNewEmployee(employeeName,departmentName);
 
-        // Get first name
-        const trimmedEmployeeName = employeeName.trim()
-        const nameSpace = trimmedEmployeeName.indexOf(" ")
-        const employeeFirstName = trimmedEmployeeName.substring(0, nameSpace)
-
-        // validate first name length
-        if (employeeFirstName.length < 3) {
-            setErrorMessage("Error: The employee name must be at least three characters or more.")
-            return
+        // Clear States
+        if (success) {
+            setEmployeeName("")
+            setDepartmentName("")
         }
-
-        // validate department selection (cannot be none)
-        if (departmentName === "") {
-            setErrorMessage("Error: Please select employees department.")
-            return
-        }
-
-        // spread operator (...) copies current employees object state as original cannot be changed
-        setEmployees((employees) => ({
-            ...employees,
-            [departmentName]: [
-                // appends employee name to departments employee array
-                ...(employees[departmentName]), employeeName
-            ]
-        }))
-
-        // clear states
-        setEmployeeName("");
-        setDepartmentName("")
-        setErrorMessage("")
-
     }
     return (
         <>
@@ -70,22 +46,24 @@ export function NewEmployeeForm({ setEmployees }: NewEmployeeProp) {
                 onChange={e => setDepartmentName(e.target.value)}
             >
                 <option value="">Please select a Department</option>
-                <option value="Administration">Administration</option>
-                <option value="Audit">Audit</option>
-                <option value="Banking Operations">Banking Operations</option>
-                <option value="Communications">Communications</option>
-                <option value="Corporate Services">Corporate Services</option>
-                <option value="Facilities">Facilities</option>
-                <option value="Financial Services">Financial Services</option>
-                <option value="Human Resources">Human Resources</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="IT Technician">IT Technician</option>
+
+                {Object.keys(departmentData ?? {}).map(
+                    (department) => (
+                        <option
+                            key={department}
+                            value={department}
+                        >
+                            {department}
+                        </option>
+                    )
+                )}
+
             </select>
             <input type="submit" value="Add Employee" />
         </form>
 
-        {errorMessage && (
-            <p className="error-message">{errorMessage}</p>
+        {error && (
+            <p className="error-message">{error}</p>
         )}
         </div>
         </>
