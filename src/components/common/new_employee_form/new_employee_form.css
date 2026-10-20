@@ -22,3 +22,21 @@
     margin: 10px;
 }
 
+.new-employee-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.new-employee-form input,
+.new-employee-form select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.new-employee-form input[type="submit"] {
+    cursor: pointer;
+}

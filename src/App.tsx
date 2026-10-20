@@ -6,6 +6,7 @@ import { NewEmployeeForm } from "./components/common/new_employee_form/new_emplo
 import { useState } from "react";
 import employeeList from "./assets/employee_list.json"
 import type { DepartmentData } from "./types/department_data_type";
+import type { ManagementRole } from "./types/management_role_type";
 import OrganizationTable from "./components/common/organization_page/organization_page"
 import management_list from "./assets/management_list.json"
 import { Nav } from "./components/common/nav/nav"
@@ -16,7 +17,10 @@ function App() {
 
     // Initialize state for employees
     const [employees, setEmployees] = useState<DepartmentData>(employeeList);
-
+    
+    // Initialize state for management roles
+    const [managers, setManagers] = useState<ManagementRole>(management_list);
+    
     return (
         <Routes>
             <Route path="/" element={
@@ -31,14 +35,16 @@ function App() {
                 <>
                 <Header />
                 <Nav />
-                {/* EmployeeList takes the latest state of employee list. */}
-                <EmployeeList 
-                    employees={employees} />
-                
+
                 {/*NewEmployeeform takes latest state as well as the function to update that state. */}
                 <NewEmployeeForm
                     employees={employees}
                     setEmployees={setEmployees} />
+
+                {/* EmployeeList takes the latest state of employee list. */}
+                <EmployeeList 
+                    employees={employees} />
+                
                 <Footer />    
                 </>
             } />
@@ -49,7 +55,8 @@ function App() {
                 <Header />
                 <Nav />
                 <OrganizationTable 
-                    managementList={management_list} />   
+                    managers={managers}
+                    setManagers={setManagers} />   
                 <Footer />            
                 </> 
             } />
