@@ -7,7 +7,8 @@ let departmentData: DepartmentData = departmentList
 // from this repository. 
 // This repository is the sole manager of requests for this data.
 
-// CRUD operation for creating new employees and 
+// CRUD op
+// ion for creating new employees and 
 // returning employees from their departments.
 
 // Get all departments
