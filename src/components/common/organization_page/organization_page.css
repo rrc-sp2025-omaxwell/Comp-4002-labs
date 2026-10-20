@@ -24,3 +24,22 @@ tbody tr:nth-child(even) {
 tbody tr:nth-child(odd) {
     background-color: #afd8f3;
 }
+
+.new-manager-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.new-manager-form input,
+.new-manager-form select {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.new-manager-form input[type="submit"] {
+    cursor: pointer;
+}

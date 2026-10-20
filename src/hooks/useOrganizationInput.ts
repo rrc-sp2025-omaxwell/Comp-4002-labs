@@ -25,12 +25,12 @@ export function useOrganizationInput({
 // returns results of validation and updates its messages.
 
     const createNewManager = async(
-        managerName: string, managementRole: string
-    ) => {
+        firstName: string, lastName: string, title: string, managementRole:string, pronouns?: string
+    ): Promise<boolean> => {
         try {
-            const result = await OrganizationService.createNewManager(
-                managerName, managementRole
-            );
+        const result = await OrganizationService.createNewManager(
+            firstName, lastName, title, managementRole, pronouns
+        );
 
             if (!result.isValid) {
                 setError(result.errors.join(" "))

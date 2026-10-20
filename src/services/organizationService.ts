@@ -14,16 +14,15 @@ export async function fetchManagementRoles() {
 }
 
 export async function createNewManager(
-    managerName: string,
-    managementRole: string
+    firstName: string, lastName: string, title: string, managementRole: string, pronouns?: string
 ): Promise<AddManagerResult> {
     let isValid = true;
     const errors: string[] = [];
 
     // Validate Manager Name
-    if (managerName.trim().length < 3) {
+    if (firstName.trim().length < 3) {
         isValid = false,
-        errors.push("Manager name must be at least 3 characters long.")
+        errors.push("First name must be at least 3 characters long.")
     }
 
     // Validate input management role name
@@ -50,7 +49,7 @@ export async function createNewManager(
     // Validation Succesful, add new manager
     try {
         const updatedOrganizationData = OrganizationRepo.AddManager(
-            managerName, managementRole
+            firstName, lastName, title, managementRole, pronouns
         );
 
         return {isValid, data: updatedOrganizationData}

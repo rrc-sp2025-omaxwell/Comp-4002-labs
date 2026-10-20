@@ -21,8 +21,8 @@ export function getManagementRoleByName(managementRole: string): Manager[] {
 
 // Add member
 export function AddManager(
-    managerName: string,
-    managementRole: string
+    firstName: string, lastName: string, title:string,
+    managementRole: string, pronouns?:string
 ): ManagementRole {
     const managers = organizationData[managementRole];
 
@@ -33,9 +33,10 @@ export function AddManager(
     }
 
     const newManager: Manager = {
-        name: managerName,
-        title: managementRole,
-    }
+        name: `${firstName} ${lastName}`,
+        title,
+        ...(pronouns ? { pronouns } : {}),
+    };
 
     organizationData = {
         ...organizationData,

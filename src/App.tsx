@@ -35,14 +35,16 @@ function App() {
                 <>
                 <Header />
                 <Nav />
-                {/* EmployeeList takes the latest state of employee list. */}
-                <EmployeeList 
-                    employees={employees} />
-                
+
                 {/*NewEmployeeform takes latest state as well as the function to update that state. */}
                 <NewEmployeeForm
                     employees={employees}
                     setEmployees={setEmployees} />
+
+                {/* EmployeeList takes the latest state of employee list. */}
+                <EmployeeList 
+                    employees={employees} />
+                
                 <Footer />    
                 </>
             } />
