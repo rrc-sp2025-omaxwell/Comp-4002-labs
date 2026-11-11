@@ -24,12 +24,16 @@ datasource db {
 
 
 // Department Model
-  id  Int @id @default(autoincrement())
-  name  String  
+model Department {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+
   employees Employee[]
+}
 
 // Employee Model
-  id  Int @id @default(autoincrement())
-  name  String
-  departmentId  Int
-  department  Department @relation(fields: [departmentId], refernces: [id])  
+model Employee {
+  id         Int    @id @default(autoincrement())
+  name       String
+  department String
+}

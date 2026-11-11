@@ -8,17 +8,29 @@ const prisma = new PrismaClient();
 // see https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding
 async function main() {
     // clear table
-    await prisma.term.deleteMany();
+    await prisma.employee.deleteMany();
+    await prisma.department.deleteMany();
 
-    // insert terms to db
-    const createManyEmployees = await prisma.term.createManyAndReturn(
-        {
-            data: termSeedData,
-            skipDuplicates: true
+    // Insert departments and employees to db
+    for (const [departmentName, employees] of Object.entries(employeeSeedData)) {
+    // Iterate over each department in the seed data    
+    const department = await prisma.department.create({
+        data: {
+        name: departmentName
         }
-    );
+    });
 
-    console.log(`CREATED EMPLOYEES: ${createManyEmployees}`);
+    for (const employeeName of employees) {
+        await prisma.employee.create({
+        data: {
+            name: employeeName,
+            departmentId: department.id
+        }
+        });
+    }
+}
+
+    console.log(`CREATED EMPLOYEES: ${employeeSeedData}`);
 };
 
 main().then(

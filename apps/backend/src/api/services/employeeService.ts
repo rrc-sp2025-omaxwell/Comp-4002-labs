@@ -17,11 +17,9 @@ export const createEmployee = async(
     employeeData: {
         name: string,
         department: string
-    }): Promise<Term> => {
+    }): Promise<Employee> => {
         const newEmployee: Employee = await prisma.employee.create({
-            data: {
-                ...employeeData
-            }
+            data: employeeData
         });
         
         return newEmployee

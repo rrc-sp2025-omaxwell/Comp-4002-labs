@@ -3,7 +3,7 @@ import { Department, Employee } from "@prisma/client";
 import * as employeeService from "../services/employeeService";
 import { successResponse } from "../models/responseModel";
 
-// DEPARTMENT & EMPLOYEE CONTROLLERS
+// EMPLOYEE CONTROLLERS
 
 // Get All Employees Controller
 
