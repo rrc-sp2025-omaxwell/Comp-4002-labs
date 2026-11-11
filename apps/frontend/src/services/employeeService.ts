@@ -1,4 +1,4 @@
-import * as EmployeeRepo from "../app/repositories/employeeRepo"
+import * as EmployeeRepo from "../apis/employeeRepo"
 import { type DepartmentData } from "../../../../shared/types/department_data_type";
 
 // Handy little thing to ensure one of 

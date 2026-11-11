@@ -1,5 +1,5 @@
-import organization_list from "../../assets/management_list.json"
-import type { ManagementRole, Manager } from "../../../../../shared/types/management_role_type";
+import organization_list from "../assets/management_list.json"
+import type { ManagementRole, Manager } from "../../../../shared/types/management_role_type";
 
 let organizationData: ManagementRole = organization_list
 

@@ -1,4 +1,4 @@
-import * as OrganizationRepo from "../app/repositories/organizationRepo"
+import * as OrganizationRepo from "../apis/organizationRepo"
 import type { ManagementRole } from "../../../../shared/types/management_role_type"
 
 // Handy little thing to ensure one of 
