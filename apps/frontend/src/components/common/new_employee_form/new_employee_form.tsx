@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { DepartmentData } from "../../../types/department_data_type";
+import type { DepartmentData } from "../../../../../../shared/types/department_data_type";
 import "./new_employee_form.css"
 import { useFormInput } from "../../../hooks/useFormInput"
 import type { Dispatch, SetStateAction } from "react";

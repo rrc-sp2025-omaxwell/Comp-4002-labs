@@ -1,5 +1,5 @@
 import * as EmployeeRepo from "../app/repositories/employeeRepo"
-import { type DepartmentData } from "../types/department_data_type";
+import { type DepartmentData } from "../../../../shared/types/department_data_type";
 
 // Handy little thing to ensure one of 
 // two shapes as a result for new accounts

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as EmployeeService from "../services/employeeService"
-import { type DepartmentData } from "../types/department_data_type";
+import { type DepartmentData } from "../../../../shared/types/department_data_type";
 import type { Dispatch, SetStateAction } from "react";
 
 type UseFormInputProps = {

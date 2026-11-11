@@ -23,14 +23,6 @@ datasource db {
 // see https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate/mental-model
 
 
-// Department Model
-model Department {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
-
-  employees Employee[]
-}
-
 // Employee Model
 model Employee {
   id         Int    @id @default(autoincrement())

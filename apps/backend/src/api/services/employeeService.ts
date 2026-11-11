@@ -1,5 +1,6 @@
 // import employee and department types defined in prisma/schema.prisma
-import { Department, Employee } from "@prisma/client";
+import { Employee } from "@prisma/client";
+import { DepartmentData } from "../../../../../shared/types/department_data_type"
 
 // Initialize prisma client if not alreade and use queries here
 import prisma from "../../../prisma/client";
@@ -7,10 +8,21 @@ import prisma from "../../../prisma/client";
 // DEPARTMENT & EMPLOYEE SERVICES
 
 // Get All Employees Service
-export const fetchAllEmployees = async(): Promise<Employee[]> => {
-    // get all records in the term table
-    return prisma.employee.findMany();
-}
+export const fetchAllEmployees = async (): Promise<DepartmentData> => {
+    const employees = await prisma.employee.findMany();
+
+    const departments: DepartmentData = {};
+
+    employees.forEach(employee => {
+        if (!departments[employee.department]) {
+            departments[employee.department] = [];
+        }
+
+        departments[employee.department].push(employee.name);
+    });
+
+    return departments;
+};
 
 // Create New Employee Service
 export const createEmployee = async(
@@ -18,9 +30,7 @@ export const createEmployee = async(
         name: string,
         department: string
     }): Promise<Employee> => {
-        const newEmployee: Employee = await prisma.employee.create({
+        return prisma.employee.create({
             data: employeeData
         });
-        
-        return newEmployee
-    }
+}

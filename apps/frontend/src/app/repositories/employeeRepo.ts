@@ -1,4 +1,4 @@
-import type { DepartmentData, DepartmentEmployees } from "../../types/department_data_type";
+import type { DepartmentData, DepartmentEmployees } from "../../../../../shared/types/department_data_type";
 import departmentList from "../../assets/employee_list.json"
 
 let departmentData: DepartmentData = departmentList

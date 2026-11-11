@@ -1,5 +1,5 @@
 import "./employee_list.css"
-import type { DepartmentData } from "../../../types/department_data_type";
+import type { DepartmentData } from "../../../../../../shared/types/department_data_type";
 
 // EmployeeList takes employees prop from app
 type EmployeeListProp = {

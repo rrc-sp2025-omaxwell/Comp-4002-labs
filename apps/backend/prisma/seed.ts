@@ -9,28 +9,20 @@ const prisma = new PrismaClient();
 async function main() {
     // clear table
     await prisma.employee.deleteMany();
-    await prisma.department.deleteMany();
 
-    // Insert departments and employees to db
-    for (const [departmentName, employees] of Object.entries(employeeSeedData)) {
-    // Iterate over each department in the seed data    
-    const department = await prisma.department.create({
-        data: {
-        name: departmentName
-        }
+    const employees = Object.entries(employeeSeedData)
+        .flatMap(([department, names]) =>
+        names.map(name => ({
+            name,
+            department
+        }))
+        );
+
+    await prisma.employee.createMany({
+        data: employees
     });
 
-    for (const employeeName of employees) {
-        await prisma.employee.create({
-        data: {
-            name: employeeName,
-            departmentId: department.id
-        }
-        });
-    }
-}
-
-    console.log(`CREATED EMPLOYEES: ${employeeSeedData}`);
+    console.log(`CREATED EMPLOYEES: ${employees}`);
 };
 
 main().then(

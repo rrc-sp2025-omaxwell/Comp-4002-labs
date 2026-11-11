@@ -5,8 +5,8 @@ import Footer from "./components/common/footer/footer";
 import { NewEmployeeForm } from "./components/common/new_employee_form/new_employee_form";
 import { useState } from "react";
 import employeeList from "./assets/employee_list.json"
-import type { DepartmentData } from "./types/department_data_type";
-import type { ManagementRole } from "./types/management_role_type";
+import type { DepartmentData } from "../../../shared/types/department_data_type";
+import type { ManagementRole } from "../../../shared/types/management_role_type";
 import OrganizationTable from "./components/common/organization_page/organization_page"
 import management_list from "./assets/management_list.json"
 import { Nav } from "./components/common/nav/nav"

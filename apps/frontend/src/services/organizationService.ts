@@ -1,5 +1,5 @@
 import * as OrganizationRepo from "../app/repositories/organizationRepo"
-import type { ManagementRole } from "../types/management_role_type"
+import type { ManagementRole } from "../../../../shared/types/management_role_type"
 
 // Handy little thing to ensure one of 
 // two shapes as a result for new accounts

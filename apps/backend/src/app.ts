@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 
 import corsOptions from "../config/cors";
 import setupSwagger from "../config/swagger";
-import termRoutes from "./api/v1/routes/termRoutes";
-import errorHandler from "./api/v1/middleware/errorHandler";
+import employeeRoutes from "./api/routes/employeeRoutes";
+import errorHandler from "./api/middleware/errorHandler";
 
 // initialize express application
 const app: Express = express();
@@ -32,8 +32,8 @@ app.get("/",  (_req, res) => {
     res.send("Got response from backend!");
 });
 
-// use termRoutes
-app.use("/api/v1", termRoutes);
+// use employeeRoutes
+app.use("/api/v1", employeeRoutes);
 
 //errorhandler catches errors as last element in middleware chain
 // occurs when "next" is invoked

@@ -12,5 +12,5 @@
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src", "test"]
+  "include": ["src", "test", "../../shared/types/department_data_type.ts", "../../shared/types/management_role_type.ts"]
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as OrganizationService from "../services/organizationService"
-import type { ManagementRole } from "../types/management_role_type"
+import type { ManagementRole } from "../../../../shared/types/management_role_type"
 import type { Dispatch, SetStateAction } from "react";
 
 type ManagerFormInputProps = {

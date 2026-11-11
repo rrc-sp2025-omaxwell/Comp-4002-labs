@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import type { ManagementRole } from "../../../types/management_role_type";
+import type { ManagementRole } from "../../../../../../shared/types/management_role_type";
 import { useOrganizationInput } from "../../../hooks/useOrganizationInput";
 import "./organization_page.css";
 
