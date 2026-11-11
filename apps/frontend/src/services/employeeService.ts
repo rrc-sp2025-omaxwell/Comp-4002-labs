@@ -9,7 +9,7 @@ type AddEmployeeResult =
 
 
 export async function fetchDepartments() {
-    const departments = await EmployeeRepo.getAllDepartments();
+    const departments = await EmployeeRepo.fetchEmployees();
     return departments
 }
 
@@ -32,7 +32,7 @@ export async function createNewEmployee(
         errors.push("A department must be selected.")
     } else {
         // Validate input department exsts
-        const departments = EmployeeRepo.getAllDepartments();
+        const departments = EmployeeRepo.fetchEmployees();
 
         if (!Object.hasOwn(departments, departmentName)) {
             isValid= false,

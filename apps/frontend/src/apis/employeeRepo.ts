@@ -1,6 +1,5 @@
-import type { DepartmentData, DepartmentEmployees } from "../../../../shared/types/department_data_type";
+import type { DepartmentData } from "../../../../shared/types/department_data_type";
 
-type DepartmentResponseJSON = {message: String, data: DepartmentEmployees[]};
 type DepartmentsResponseJSON = {message: String, data: DepartmentData};
 
 // Base url for backend
