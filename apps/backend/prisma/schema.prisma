@@ -29,3 +29,12 @@ model Employee {
   name       String
   department String
 }
+
+// Organization Model
+model Organization {
+  id         Int    @id @default(autoincrement())
+  name       String
+  role       String
+  title      String
+  pronouns   String
+}
