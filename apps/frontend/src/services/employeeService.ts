@@ -34,8 +34,8 @@ export async function createNewEmployee(
         // Validate input department exsts
         const departments = EmployeeRepo.fetchEmployees();
 
-        if (!Object.hasOwn(departments, departmentName)) {
-            isValid= false,
+        if (!Object.prototype.hasOwnProperty.call(departments, departmentName)) {
+            isValid= false;
             errors.push(`Department "${departmentName}" not found.`)
         } 
     }

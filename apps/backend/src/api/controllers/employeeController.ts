@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { Employee } from "@prisma/client";
 import * as employeeService from "../services/employeeService";
 import { successResponse } from "../models/responseModel";
 
@@ -8,7 +7,7 @@ import { successResponse } from "../models/responseModel";
 // Get All Employees Controller
 
 export const getAllEmployees = async(
-    req: Request,
+    _req: Request,
     res: Response,
     next: NextFunction
 ): Promise<void> => {
