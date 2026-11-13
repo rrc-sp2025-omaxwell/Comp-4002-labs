@@ -30,6 +30,9 @@ export async function AddEmployee(
         `${BASE_URL}${EMPLOYEE_ENDPOINT}`,
         {
             method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
             body: JSON.stringify({
                 name: employeeName,
                 department: departmentName
@@ -41,6 +44,6 @@ export async function AddEmployee(
         throw new Error(`Failed to create new employee with name: ${employeeName} in department: ${departmentName}`);
     }
 
-    const json: DepartmentsResponseJSON = await employeeResponse.json();
-    return json.data;
+    
+    return await fetchEmployees();
 }

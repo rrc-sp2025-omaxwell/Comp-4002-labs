@@ -32,9 +32,9 @@ export async function createNewEmployee(
         errors.push("A department must be selected.")
     } else {
         // Validate input department exsts
-        const departments = EmployeeRepo.fetchEmployees();
-
+        const departments = await EmployeeRepo.fetchEmployees();
         if (!Object.prototype.hasOwnProperty.call(departments, departmentName)) {
+
             isValid= false;
             errors.push(`Department "${departmentName}" not found.`)
         } 
@@ -49,7 +49,7 @@ export async function createNewEmployee(
 
     // Validation Succesful, add new eployee
     try {
-        const updatedDepartmentData = EmployeeRepo.AddEmployee(
+        const updatedDepartmentData = await EmployeeRepo.AddEmployee(
             employeeName, departmentName
         );
 
