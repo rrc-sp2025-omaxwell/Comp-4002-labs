@@ -36,5 +36,5 @@ model Manager {
   name       String
   role       String
   title      String
-  pronouns   String
+  pronouns   String?
 }

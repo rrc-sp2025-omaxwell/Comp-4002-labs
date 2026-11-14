@@ -16,5 +16,5 @@ export const managementSchema: ObjectSchema = Joi.object({
     "string.empty": "Title cannot be empty"
     }),
     id: Joi.string().optional(),
-    pronounds: Joi.string().optional()
+    pronouns: Joi.string().optional()
 });

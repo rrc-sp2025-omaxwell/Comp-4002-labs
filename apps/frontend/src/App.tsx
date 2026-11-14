@@ -42,7 +42,7 @@ function App() {
         }
 
         loadEmployees();
-        loadManagement()
+        loadManagement();
     }, []);
     
     return (

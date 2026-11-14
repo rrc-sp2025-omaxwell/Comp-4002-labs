@@ -9,7 +9,7 @@ import prisma from "../../../prisma/client";
 
 // Get All Managers Service
 export const fetchAllManagers = async (): Promise<ManagementRole> => {
-    const managers = await prisma.management.findMany();
+    const managers = await prisma.manager.findMany();
 
     const managementRoles: ManagementRole = {};
 
@@ -18,7 +18,10 @@ export const fetchAllManagers = async (): Promise<ManagementRole> => {
             managementRoles[manager.role] = [];
         }
 
-        managementRoles[manager.role].push(manager);
+        managementRoles[manager.role].push({
+            ...manager,
+            pronouns: manager.pronouns ?? undefined,
+        });
     });
 
     return managementRoles;
@@ -30,9 +33,9 @@ export const createManager = async(
         name: string,
         role: string,
         title: string,
-        pronouns: string
+        pronouns?: string
     }): Promise<Manager> => {
-        return prisma.employee.create({
+        return prisma.manager.create({
             data: managerData
         });
 }

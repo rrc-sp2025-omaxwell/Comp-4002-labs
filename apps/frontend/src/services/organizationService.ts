@@ -1,4 +1,4 @@
-import * as OrganizationRepo from "../apis/organizationRepo"
+import * as organizationRepo from "../apis/organizationRepo"
 import type { ManagementRole } from "../../../../shared/types/management_role_type"
 
 // Handy little thing to ensure one of 
@@ -9,7 +9,7 @@ type AddManagerResult =
 
 
 export async function fetchManagementRoles() {
-    const managementRoles = await OrganizationRepo.getAllManagers();
+    const managementRoles = await organizationRepo.fetchManagement()
     return managementRoles
 }
 
@@ -31,7 +31,7 @@ export async function createNewManager(
         errors.push("A management role must be selected.")
     } else {
         // Validate input management role exsts
-        const managementRoles = await OrganizationRepo.getAllManagers();
+        const managementRoles = await organizationRepo.fetchManagement();
 
         if (!Object.hasOwn(managementRoles, managementRole)) {
             isValid= false,
@@ -48,11 +48,11 @@ export async function createNewManager(
 
     // Validation Succesful, add new manager
     try {
-        const updatedOrganizationData = OrganizationRepo.AddManager(
+        const updatedOrganizationData = await organizationRepo.AddManager(
             firstName, lastName, title, managementRole, pronouns
         );
 
-        return {isValid, data: updatedOrganizationData}
+        return {isValid: true, data: updatedOrganizationData}
     } catch (error) {
         return {
             isValid: false,

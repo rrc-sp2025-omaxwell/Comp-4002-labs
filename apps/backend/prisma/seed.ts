@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 async function main() {
     // clear table
     await prisma.employee.deleteMany();
-    await prisma.management.deleteMany();
+    await prisma.manager.deleteMany();
 
     const employees = Object.entries(employeeSeedData)
         .flatMap(([department, names]) =>
@@ -34,7 +34,7 @@ async function main() {
         data: employees
     });
 
-    await prisma.management.createMany({
+    await prisma.manager.createMany({
         data: management
     });
 
