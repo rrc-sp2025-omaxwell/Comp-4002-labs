@@ -8,7 +8,7 @@ import * as EmployeeRepo from "../src/apis/employeeRepo"
 import type { DepartmentData } from "../../../shared/types/department_data_type";
 import type { ManagementRole } from "../../../shared/types/management_role_type";
 import OrganizationTable from "./components/common/organization_page/organization_page"
-import management_list from "./assets/management_list.json"
+import * as organizationRepo from "../src/apis/organizationRepo"
 import { Nav } from "./components/common/nav/nav"
 
 import { Routes, Route } from "react-router-dom";
@@ -19,7 +19,7 @@ function App() {
     const [employees, setEmployees] = useState<DepartmentData>({});
     
     // Initialize state for management roles
-    const [managers, setManagers] = useState<ManagementRole>(management_list);
+    const [managers, setManagers] = useState<ManagementRole>({});
 
     // Fetch employees from the backend when the component first mounts
     useEffect(() => {
@@ -32,7 +32,17 @@ function App() {
             }
         }
 
+        async function loadManagement() {
+            try {
+                const data = await organizationRepo.fetchManagement();
+                setManagers(data);
+            } catch (error) {
+                console.error("Error loading management:", error);
+            }
+        }
+
         loadEmployees();
+        loadManagement()
     }, []);
     
     return (
