@@ -1,6 +1,6 @@
 // import employee and department types defined in prisma/schema.prisma
 import { Employee } from "@prisma/client";
-import { DepartmentData } from "../../../../../shared/types/department_data_type"
+import type { DepartmentData } from "../../../../../shared/types/department_data_type"
 
 // Initialize prisma client if not alreade and use queries here
 import prisma from "../../../prisma/client";
